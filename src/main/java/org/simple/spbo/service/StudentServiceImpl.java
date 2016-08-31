@@ -20,7 +20,7 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	public Student getStudent(long id) {
-		return null;
+		return studentDao.findOne(id);
 	}
 
 }

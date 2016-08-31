@@ -21,7 +21,11 @@ public class StudentController {
 		student.setName("goodboy");
 		studentService.saveStudent(student);
 		return "save sucess";
-		
+	}
+	
+	@RequestMapping("find")
+	public Student getStudent(){
+		return studentService.getStudent(1);
 	}
 	
 }
