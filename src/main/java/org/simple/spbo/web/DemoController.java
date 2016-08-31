@@ -28,4 +28,10 @@ public class DemoController {
 		return d;
 	}
 	
+	@RequestMapping("getException")
+	public String getException(){
+		int a = 100/0;
+		return "Õý³£·µ»Ø";
+	}
+	
 }
