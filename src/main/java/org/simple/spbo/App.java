@@ -3,6 +3,11 @@ package org.simple.spbo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * 启动服务类
+ * @author GeL
+ *
+ */
 @SpringBootApplication
 public class App {
 	public static void main(String[] args) {
