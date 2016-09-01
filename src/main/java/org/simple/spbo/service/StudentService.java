@@ -13,4 +13,6 @@ public interface StudentService {
 	
 	Student getStudent(long id);
 	
+	Student getSudentByTemplate(Student student);
+	
 }

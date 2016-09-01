@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 /**
- * Òì³£Í³Ò»´¦Àí
+ * ï¿½ì³£Í³Ò»ï¿½ï¿½ï¿½ï¿½
  * @author GeL
  *
  */
@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class ExceptionController {
 
 	/**
-	 * À¹½ØÅ×³öµÄÒì³£
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½×³ï¿½ï¿½ï¿½ï¿½ì³£
 	 */
 	@ExceptionHandler(value = Exception.class)
 	public void defaultErrorHandler(HttpServletRequest req, Exception e){
-	      //´òÓ¡Òì³£ÐÅÏ¢£º
-	       //e.printStackTrace();
+	      //ï¿½ï¿½Ó¡ï¿½ì³£ï¿½ï¿½Ï¢ï¿½ï¿½
+	       e.printStackTrace();
 	       System.out.println("GlobalDefaultExceptionHandler.defaultErrorHandler()");
 	}
 	

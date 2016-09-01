@@ -28,4 +28,11 @@ public class StudentController {
 		return studentService.getStudent(1);
 	}
 	
+	@RequestMapping("queryById")
+	public Student queryById(){
+		Student s = new Student();
+		s.setId(1);
+		return studentService.getSudentByTemplate(s);
+	}
+	
 }
