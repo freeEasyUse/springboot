@@ -22,7 +22,8 @@ public class DruidConfiguration {
 	 */
     @Bean
     public ServletRegistrationBean druidStatViewServle(){
-       //org.springframework.boot.context.embedded.ServletRegistrationBean提供类的进行注册.
+        //org.springframework.boot.context.embedded.ServletRegistrationBean提供类的进行注册.
+    	//StatViewServlet druid提供的用于监控的servlet
        ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new StatViewServlet(),"/druid/*");
       
        //添加初始化参数：initParams
@@ -45,7 +46,8 @@ public class DruidConfiguration {
      * @return
      */
     @Bean
-    public FilterRegistrationBean druidStatFilter2(){
+    public FilterRegistrationBean druidStatFilter(){
+    	//druid 提供的用于监控的filter WebStatFilter
        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean(new WebStatFilter());
        //添加过滤规则.
        filterRegistrationBean.addUrlPatterns("/*");

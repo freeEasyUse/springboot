@@ -2,6 +2,7 @@ package org.simple.spbo.web;
 
 import org.simple.spbo.entity.Student;
 import org.simple.spbo.service.StudentService;
+import org.simple.spbo.util.SpringBeanUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,6 +34,11 @@ public class StudentController {
 		Student s = new Student();
 		s.setId(1);
 		return studentService.getSudentByTemplate(s);
+	}
+	
+	@RequestMapping("getBeanInfo")
+	public String getBeanInfo(){
+		return  SpringBeanUtil.getBean(HelloController.class).toString();
 	}
 	
 }
