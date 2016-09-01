@@ -2,13 +2,15 @@ package org.simple.spbo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 
 /**
- * 启动服务类
+ * springBoot
  * @author GeL
  *
  */
 @SpringBootApplication
+@ServletComponentScan	//寮�鍚敞瑙ｆ敞鍏ervlet
 public class App {
 	public static void main(String[] args) {
 		SpringApplication.run(App.class, args);
