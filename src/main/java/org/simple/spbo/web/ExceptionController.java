@@ -4,23 +4,23 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * �쳣ͳһ����
- * @author GeL
- *
+ * 异常抛出
  */
 @ControllerAdvice
 public class ExceptionController {
 
 	/**
-	 * �����׳����쳣
+	 * 所有的异常到这里进行处理
 	 */
 	@ExceptionHandler(value = Exception.class)
-	public void defaultErrorHandler(HttpServletRequest req, Exception e){
-	      //��ӡ�쳣��Ϣ��
-	       e.printStackTrace();
+	@ResponseBody
+	public String defaultErrorHandler(HttpServletRequest req, Exception e){
+	       //e.printStackTrace();
 	       System.out.println("GlobalDefaultExceptionHandler.defaultErrorHandler()");
+	       return "系统异常了";
 	}
 	
 }
