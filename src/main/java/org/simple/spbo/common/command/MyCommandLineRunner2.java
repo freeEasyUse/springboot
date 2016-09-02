@@ -1,5 +1,4 @@
 package org.simple.spbo.common.command;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;

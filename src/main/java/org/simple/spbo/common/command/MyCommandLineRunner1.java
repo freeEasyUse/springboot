@@ -1,5 +1,7 @@
 package org.simple.spbo.common.command;
 
+import org.simple.spbo.entity.PropEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -16,12 +18,16 @@ import org.springframework.stereotype.Component;
 @Order(value = 1)
 public class MyCommandLineRunner1 implements CommandLineRunner {
 
+	@Autowired
+	private PropEntity propEntity;
+	
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("系统执行时候加载11111111111111-----------------");
 		for(String s:args){
 			System.out.println("======="+s+"=======");
 		}
+		System.out.println(propEntity.toString());
 	}
 
 }
