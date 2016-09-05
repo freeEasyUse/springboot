@@ -1,5 +1,7 @@
 package org.simple.spbo.web;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.simple.spbo.entity.Student;
 import org.simple.spbo.service.StudentService;
 import org.simple.spbo.util.SpringBeanUtil;
@@ -39,6 +41,18 @@ public class StudentController {
 	@RequestMapping("getBeanInfo")
 	public String getBeanInfo(){
 		return  SpringBeanUtil.getBean(HelloController.class).toString();
+	}
+	
+	@RequestMapping("login")
+	public String login(HttpServletRequest request){
+		request.getSession().setAttribute("loginName", "student");
+		return "login seccess";
+	}
+	
+	@RequestMapping("out")
+	public String out(HttpServletRequest request){
+		request.getSession().removeAttribute("loginName");
+		return "out seccess";
 	}
 	
 }

@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 
 /**
@@ -26,7 +27,9 @@ import org.springframework.data.redis.core.RedisTemplate;
  * @version v.0.1
  */
 @Configuration
-@EnableCaching//启用缓存，这个注解很重要；
+@EnableCaching//启用缓存，这个注解很重要;
+@EnableRedisHttpSession	//使用redis 进行session共享 所有的entity需要序列号
+//@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 60) //1分钟失效
 public class RedisConfig extends CachingConfigurerSupport {
 
 	   

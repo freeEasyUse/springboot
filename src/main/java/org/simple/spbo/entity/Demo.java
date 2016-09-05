@@ -1,15 +1,21 @@
 package org.simple.spbo.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 /**
- * ²âÊÔÊµÌå
+ * ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
  * @author GeL
  *
  */
-public class Demo {
+public class Demo implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private String name;
 	
 	private int id;
