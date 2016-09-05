@@ -22,7 +22,7 @@ public class SchedulingConfig {
 	/**
 	 * 每20s 输出
 	 */
-	@Scheduled(cron = "0/20 * * * * ?")
+	//@Scheduled(cron = "0/20 * * * * ?")
 	public void sayHelloEvery20Mis(){
 		System.out.println(">>>>>>>>> SchedulingConfig.scheduler()");
 		//每20s获取数据库中数据输出
