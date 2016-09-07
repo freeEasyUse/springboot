@@ -45,6 +45,11 @@
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+
 		<!-- mysql -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -104,7 +109,7 @@
 			<groupId>net.sf.ehcache</groupId>
 			<artifactId>ehcache</artifactId>
 		</dependency>
-		
+
 	</dependencies>
 	<build>
 		<finalName>springBoot</finalName>
