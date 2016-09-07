@@ -5,10 +5,11 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.ehcache.EhCacheCacheManager;
 import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 
-@Configurable
-@EnableCaching//标注启动缓存.
+//@Configuration
+//@EnableCaching//标注启动缓存.
 public class EHCacheConfig {
 
 	/**
@@ -16,7 +17,7 @@ public class EHCacheConfig {
      * @param bean
      * @return
      */
-    @Bean
+    //@Bean
     public EhCacheCacheManager ehCacheCacheManager(EhCacheManagerFactoryBean bean){
        System.out.println("CacheConfiguration.ehCacheCacheManager()");
        return new EhCacheCacheManager(bean.getObject());
@@ -30,7 +31,7 @@ public class EHCacheConfig {
        * 也说是说通过这个来设置cache的基地是这里的Spring独用,还是跟别的(如hibernate的Ehcache共享)
        *
        */
-      @Bean
+      //@Bean
       public EhCacheManagerFactoryBean ehCacheManagerFactoryBean(){
         System.out.println("CacheConfiguration.ehCacheManagerFactoryBean()");
         EhCacheManagerFactoryBean cacheManagerFactoryBean = new EhCacheManagerFactoryBean ();

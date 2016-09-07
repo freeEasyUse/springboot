@@ -6,7 +6,6 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
-import org.apache.shiro.authc.credential.CredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -15,7 +14,6 @@ import org.simple.spbo.shiro.entity.SysPermission;
 import org.simple.spbo.shiro.entity.SysRole;
 import org.simple.spbo.shiro.entity.UserInfo;
 import org.simple.spbo.shiro.service.IUserInfoService;
-import org.springframework.cache.annotation.Cacheable;
 
 /**
  * 身份校验

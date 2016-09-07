@@ -3,11 +3,13 @@ package org.simple.spbo.shiro;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.simple.spbo.shiro.realms.MyShiroRealm;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,10 +19,10 @@ import org.springframework.context.annotation.Configuration;
 Apache Shiro 核心通过 Filter 来实现，就好像SpringMvc 通过DispachServlet 来主控制一样。
 既然是使用 Filter 一般也就能猜到，是通过URL规则来进行过滤和权限校验，所以我们需要定义一系列关于URL的规则和访问权限。
  *
- * @author Angel(QQ:412887952)
  * @version v.0.1
  */
 @Configuration
+@EnableCaching//启用缓存，这个注解很重要;
 public class ShiroConfiguration {
       
 	/**
@@ -110,12 +112,29 @@ public class ShiroConfiguration {
        return shiroFilterFactoryBean;
     }
    
+    
+    /**
+     * shiro缓存管理器;
+     * 需要注入对应的其它的实体类中：
+     * 1、安全管理器：securityManager
+     * 可见securityManager是整个shiro的核心；
+     * @return
+     */
+    @Bean
+    public EhCacheManager ehCacheManager(){
+       System.out.println("ShiroConfiguration.getEhCacheManager()");
+       EhCacheManager cacheManager = new EhCacheManager();
+       cacheManager.setCacheManagerConfigFile("classpath:config/ehcache-shiro.xml");
+       return cacheManager;
+    }
    
     @Bean
     public SecurityManager securityManager(){
        DefaultWebSecurityManager securityManager =  new DefaultWebSecurityManager();
        //设置realm.
        securityManager.setRealm(myShiroRealm());
+       //注入缓存管理器;
+       securityManager.setCacheManager(ehCacheManager());//这个如果执行多次，也是同样的一个对象;
        return securityManager;
     }
    

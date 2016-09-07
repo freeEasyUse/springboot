@@ -20,7 +20,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class CommonConfig {
 
-	private int ServletListenerRegistrationBean;
 
 	/**
 	 * 代码组织serverlet
